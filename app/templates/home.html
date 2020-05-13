@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <!--
+    <h2>Form Examples</h2>
+    <p>The following are basic examples of how to create and process forms using the default Flask form handling and also the Flask-WTF library.</p>
+    <ul>
+        <li><a href="{{ url_for('basic_form') }}">Basic Form Example</a></li>
+        <li><a href="{{ url_for('wtform') }}">Flask-WTF Example</a></li>
+        <li><a href="{{ url_for('photo_upload') }}">File Upload Example</a></li>
+    </ul>
+    -->
+    <br><br><br><br>
+    <div class="home-row">
+        <div class="home-column">
+            <img src="https://images.adsttc.com/media/images/5b68/91b2/f197/cc32/a300/04ba/slideshow/18_MAD_Echigo_Tsumari_Tunnel_of_Light_Live_Cave_by_Nacasa___Partners_Inc..jpg?1533579671" alt="Snow"><!-- style="width:60%">-->
+        </div>
+        <!--<div class="home-column">
+            <img src="https://www.w3schools.com/images/picture.jpg" alt="Forest" style="width:150%">
+        </div>-->
+        <div class="home-column">
+        <!--ORIGINALLY COMMENTED <div class="photogram-box">-->
+            <div class="photogram-box">
+                <ul class="home-nav">
+                    <li>
+                      <i class="fa fa-camera fa-2x"></i>
+                      <!--<h3 class="home-photo">Photogram</h3>-->
+                      <a class="home-photo" style="text-decoration:none" href="www.google.com">Photogram</a>
+                    </li>
+                    <hr>
+                    <p>Share photos of your favourite moment with your friends, family and the world.</p>
+                </ul>
+                <br><br>
+                <table class="home-buttons">
+                    <th>
+                        <form action="{{ url_for('wtform') }}">
+                           <button type="submit" class="register-button">Register</button> 
+                        </form>
+                    </th>
+                    <th>
+                        <form action="{{ url_for('login') }}"> <!--CHANGE TO A LOGIN HTML-->
+                           <button type="submit" class="login-button">Login</button> 
+                        </form>
+                    </th>
+                </table>
+            </div>
+        </div>
+     
+    </div>
+{% endblock %}
