@@ -3,5 +3,8 @@
 {% block main %}
     <h2>Successful Form Submission</h2>
     {% include 'flash_messages.html' %}
-    <p>My name is <strong>{{ firstname + ' ' + lastname }}</strong> and my email address is <strong>{{ email }}</strong>.</p>
+    <p>My name is <strong>{{ firstname + ' ' + lastname }}</strong> , username is {{username}} and my email address is <strong>{{ email }}</strong>.</p>
+    <p>My location is <strong>{{ location }}</strong></p>
+    <p>My biography is <strong>{{ biography }}</strong></p>
+    <img src="{{ url_for('static', filename="uploads/" + filename) }}" />
 {% endblock %}

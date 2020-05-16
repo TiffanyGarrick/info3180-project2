@@ -10,10 +10,10 @@ class Users(db.Model):
     email = db.Column(db.String(40))
     location = db.Column(db.String(255))
     biography = db.Column(db.String(255))
-    profile_photo = db.Column(db.bytea)
+    #profile_photo = db.Column(db.bytea)
     joined_on = db.Column(db.DATE)
 
-    def __init__(self, username, password,firstname, lastname,email,location,biography,profile_photo,joined_on):
+    def __init__(self, username, password,firstname, lastname,email,location,biography,joined_on):#profile_photo,joined_on):
         self.username = username
         self.password = generate_password_hash(password, method='pbkdf2:sha256')
         self.firstname = firstname
@@ -21,7 +21,7 @@ class Users(db.Model):
         self.email = email
         self.location = location
         self.biography = biography
-        self.profile_photo = profile_photo
+        #self.profile_photo = profile_photo
         self.joined_on = joined_on
 
     def is_authenticated(self):
@@ -101,14 +101,14 @@ class Likes(db.Model):
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
-    profile_photo = db.Column(db.bytea)
+    #profile_photo = db.Column(db.bytea)
     caption = db.Column(db.String(255))
     created_on = db.Column(db.DATE)
 
-    def __init__(self, id, user_id,profile_photo,caption,created_on):
+    def __init__(self, id, user_id,caption,created_on):#profile_photo,caption,created_on):
         self.id = id
         self.user_id = user_id
-        self.profile_photo = profile_photo
+        #self.profile_photo = profile_photo
         self.caption = caption
         self.created_on = created_on
 

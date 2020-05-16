@@ -1,4 +1,6 @@
 # info3180-project2
+NEW !!!username:postgres, password:123, database name: project_two
+db.dropall() TO DROP ALL TABLES IN DATABASE
 
 password for database: password
 username: postgres
@@ -11,6 +13,7 @@ CREATE TABLE Follows (
   user_id SMALLINT,
   follower_id SMALLINT
 );
+
 #bytea for pictures
 #serial means autoincrement..just INSERT INTO fruits(id,name) (newline) VALUES(DEFAULT,'Apple');
                           or INSERT INTO fruits(name) (newline) VALUES('Orange');

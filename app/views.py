@@ -66,12 +66,15 @@ def wtform():
             cur = db.cursor()
             joined_on=date.today()
             
-            cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography,photo) values (%s,%s, %s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo']))
+            cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography) values (%s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography']))
+            #cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography,photo) values (%s,%s, %s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo']))
             db.commit()
 
             flash('You have successfully filled out the form', 'success')
             #SAVING DATA TO DATABASE WITH SQLALCHEMY BELOW
-            user = Users(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo'],joined_on)
+            
+            #user = Users(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo'],joined_on)
+            user = Users(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],joined_on)
             db.session.add(user)
             db.session.commit()
             return render_template('result.html', username=username, password=password, firstname=firstname, lastname=lastname, email=email,

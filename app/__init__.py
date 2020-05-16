@@ -8,7 +8,8 @@ app = Flask(__name__)
 UPLOAD_FOLDER = './app/static/uploads'
 # needed for session security, the flash() method in this case stores the message
 # in a session
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:@password@localhost/project2"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/project_two'
+#postgresql://postgres:@password@localhost/project2'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # added just to suppress a warning
 app.config['SECRET_KEY'] = 'Sup3r$3cretkey'
 
