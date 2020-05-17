@@ -38,6 +38,12 @@ def basic_form():
         return render_template('result.html',firstname=firstname,lastname=lastname,email=email)
     return render_template('form.html')
 
+@app.route('/explore', methods=['GET'])
+def explore():
+    return render_template('explore.html')
+
+
+'''REGISTER PAGE RELATED'''
 def connect_db():
     return psycopg2.connect(host="localhost",database="project_two", user="postgres", password="123") 
 
@@ -46,9 +52,6 @@ def register():
     myform = MyForm()
     if request.method == 'POST':
         if myform.validate_on_submit():
-            # Note the difference when retrieving form data using Flask-WTF
-            # Here we use myform.firstname.data instead of request.form['firstname']
-            
             username = myform.username.data
             password = myform.password.data
             firstname = myform.firstname.data
@@ -65,7 +68,7 @@ def register():
             cur = db.cursor()
             joined_on=date.today()
             
-            cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography) values (%s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography']))
+            cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography,joined_on) values (%s, %s, %s, %s, %s, %s, %s,%s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],joined_on))
             #cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography,photo) values (%s,%s, %s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo']))
             db.commit()
 
@@ -125,7 +128,7 @@ def wtform():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('wtform'))
+        return redirect(url_for('basic_form'))
 
     form = LoginForm()
     # Login and validate the user.
@@ -139,7 +142,7 @@ def login():
             login_user(user)
             flash('Logged in successfully.', 'success')
             next_page = request.args.get('next')
-            return redirect(next_page or url_for('wtform'))
+            return redirect(next_page or url_for('basic_form'))
         else:
             flash('Username or Password is incorrect.', 'danger')
 

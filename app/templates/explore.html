@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <!--LOOK AT USERS.HTML IN TOPIC4DEMO TO SEE-->
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <br><br>
+   <!--<div class="fist_post">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSptfNmiERccFp092PsYGlU4Ez2UirW5NAFJi30ul4ejCa4x0ak&usqp=CAU" alt="Username Icon" class="username_pic">
+        <h3 class="u_name">jperalta</h3><br><br>
+        <img src="https://image.freepik.com/free-photo/man-posing-front-his-car_23-2148196447.jpg" alt="Second Post" class="profile_pic">
+        <p class="post_caption">Less Perfection, more Authenticity</p>
+        <a class="heart" href="#"><i class="far fa-heart"></i></a>
+        <h3 class="likes">10 likes</h3>
+        <h3 class="date">24 Apr 2018</h3>
+    </div>  -->
+    <form action="{{ url_for('newpost') }}">
+        <button type="submit" class="new-post">New Post</button>  
+    </form>
+    <br> 
+    <div class="second_post">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSptfNmiERccFp092PsYGlU4Ez2UirW5NAFJi30ul4ejCa4x0ak&usqp=CAU" alt="Username Icon" class="username_pic">
+        <h3 class="u_name">rdiaz</h3><br><br>
+        <img src="https://image.freepik.com/free-photo/man-posing-front-his-car_23-2148196447.jpg" alt="Second Post" class="profile_pic">
+        <p class="post_caption">Why chase you, when I am the catch...</p>
+        <img src="https://jcblogimages.blob.core.windows.net/img/2014/08/image.png" alt="Second Post" class="heart">
+        <h3 class="likes">18 likes</h3>
+        <h3 class="date">07 March 2018</h3>
+    </div>
+{% endblock %}

@@ -11,7 +11,7 @@ UPLOAD_FOLDER = './app/static/uploads'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/project_two'
 #postgresql://postgres:@password@localhost/project2'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # added just to suppress a warning
-app.config['SECRET_KEY'] = 'Sup3r$3cretkey'
+app.config['SECRET_KEY'] = '12345@idklO0L' #ORIGINAL KEY THAT EXPIRED: 'Sup3r$3cretkey'
 
 
 db = SQLAlchemy(app)

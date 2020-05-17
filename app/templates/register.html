@@ -3,8 +3,8 @@
 {% block main %}
     <h2 class="register">Register</h2>
     
-    <!--WHERE ACTION WAS {{ url_for('wtform') }}-->
-    <form method="post" action="" class="register-form">
+    <!--ACTION WAS {{ url_for('wtform') }}-->
+    <form method="post" action="" class="register-form" enctype="multipart/form-data">
         {% include 'flash_messages.html' %}
         {{ form.csrf_token }}
         <div class="form-group">

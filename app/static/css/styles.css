@@ -276,3 +276,82 @@ input{
   word-wrap: break-word;
 }
 /**End of Login Page CSS**/
+/**Start of Explore Page CSS**/
+.new-post{
+  border-radius: 10px;
+  background-color: #5DADE2;
+  color: white;
+  text-align: center;
+  /**padding: 14px 20px;**/
+  padding: 5px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 250px;
+  opacity: 0.9;
+}
+.second_post{
+    /*display:box;*/
+  border:1px solid #B2BABB;
+  /**padding:20px;**/
+  width: 500px;
+  height: 430px;
+  background-color: white;
+  margin: auto;
+  color: black;
+}
+.username_pic{
+  width: 30px;
+  height: 30px;
+}
+.username_pic, .u_name{
+  display:inline;
+}
+.profile_pic{
+  width:500px;
+  height: 300px;
+}
+.new-post{
+  display:inline;
+  float: right;
+}
+/**.new-post, .first_post{
+  display:inline;
+}
+.new-post{
+  text-align: right; 
+}**/
+.u_name{
+  font-family: Blippo;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+}
+.post_caption{
+  font-family: Blippo;
+  font-weight: 500;
+  font-style: inherit;
+  font-size: 13px;
+}
+.date{
+  float: right;
+  font-family: Blippo;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+}
+.likes{
+  display:inline;
+  font-family: Blippo;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+}
+.heart{
+  width: 30px;
+  height: 30px;
+}
+.heart, .likes, .date{
+  display: inline;
+}
+/**End of Explore Page CSS**/
