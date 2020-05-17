@@ -229,6 +229,18 @@ ul.home-nav li{
 
 /**End of Home Page CSS**/
 /**Login Page CSS**/
+.login-text{
+  font-family: Blippo;
+  font-size: 20px;
+  font-weight: 600;
+}
+.login-text{
+  display:block;
+  text-align:left;
+  padding:20px;
+  width: 590px; /**480px originally**/
+  margin: auto;
+}
 .login-form {
   /*ORIGINAL width: 100%;
   max-width: 400px;
@@ -241,6 +253,7 @@ ul.home-nav li{
   background-color: white;
   margin: auto;
   color: black;
+  text-align: left;
 }
 .butn {
   border-radius: 10px;
@@ -254,5 +267,12 @@ ul.home-nav li{
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+}
+input{
+  text-align:center;
+  display: block;
+  width: 375px;
+  height: 40px;
+  word-wrap: break-word;
 }
 /**End of Login Page CSS**/

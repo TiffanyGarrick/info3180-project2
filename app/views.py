@@ -41,6 +41,46 @@ def basic_form():
 def connect_db():
     return psycopg2.connect(host="localhost",database="project_two", user="postgres", password="123") 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    myform = MyForm()
+    if request.method == 'POST':
+        if myform.validate_on_submit():
+            # Note the difference when retrieving form data using Flask-WTF
+            # Here we use myform.firstname.data instead of request.form['firstname']
+            
+            username = myform.username.data
+            password = myform.password.data
+            firstname = myform.firstname.data
+            lastname = myform.lastname.data
+            email = myform.email.data
+            location = myform.location.data
+            biography = myform.biography.data
+            photo = myform.photo.data
+
+            filename = secure_filename(photo.filename)
+            photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+            db = connect_db()
+            cur = db.cursor()
+            joined_on=date.today()
+            
+            cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography) values (%s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography']))
+            #cur.execute('insert into Users (username,password,firstname,lastname,email,location,biography,photo) values (%s,%s, %s, %s, %s, %s, %s, %s, %s)',(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo']))
+            db.commit()
+
+            flash('You have successfully filled out the form', 'success')
+            #SAVING DATA TO DATABASE WITH SQLALCHEMY BELOW
+            
+            #user = Users(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],request.form['photo'],joined_on)
+            user = Users(request.form['username'],request.form['password'],request.form['firstname'],request.form['lastname'],request.form['email'], request.form['location'],request.form['biography'],joined_on)
+            db.session.add(user)
+            db.session.commit()
+            return render_template('result.html', username=username, password=password, firstname=firstname, lastname=lastname, email=email,
+                    location=location, biography=biography,filename=filename)
+        flash_errors(myform)
+    return render_template('register.html', form=myform)
+    
 @app.route('/wtform', methods=['GET', 'POST'])
 @login_required
 def wtform():
