@@ -39,7 +39,7 @@ def basic_form():
     return render_template('form.html')
 
 def connect_db():
-    return psycopg2.connect(host="localhost",database="project2", user="postgres", password="password") 
+    return psycopg2.connect(host="localhost",database="project_two", user="postgres", password="123") 
 
 @app.route('/wtform', methods=['GET', 'POST'])
 @login_required
