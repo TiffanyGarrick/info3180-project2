@@ -118,16 +118,16 @@ def register():
     #Accepts user information and saves it to the database
 def users_register():
     myform=MyForm()
-    user = {
-        "username": "myform.username.data"
-        "password" = "myform.password.data"
-        "firstname" = "myform.firstname.data"
-        "lastname" = "myform.lastname.data"
-        "email" = "myform.email.data"
-        "location" = "myform.location.data"
-        "biography" = "myform.biography.data"
+    user = [{
+        "username": "myform.username.data",
+        "password" = "myform.password.data",
+        "firstname" = "myform.firstname.data",
+        "lastname" = "myform.lastname.data",
+        "email" = "myform.email.data",
+        "location" = "myform.location.data",
+        "biography" = "myform.biography.data",
         "photo" = "myform.photo.data"
-    }
+    }]
     return jsonify(data={"user": user}, message="User successfully registered")
 
 """ENDING REGISTER RELATED THINGS"""
@@ -240,7 +240,13 @@ def newpost():
 @app.route('/api/users/{user_id}/posts', methods=['GET']): #Returns a user's posts
 @requires_auth
 def user_posts(user_id):
-    return ""
+    #if 'id' in request.args:
+    #   id = int(request.args['id'])
+    #else:
+    #    return "Error: No id field provided. Please provide a specific id."
+    
+    post = Posts.query.filter_by(user_id ='user_id')
+    return render_template('explore.html', user_id=user_id)
     
 @app.route('/api/users/{user_id}/follow', methods=['POST']): #Create a Follow relationship between the current user and the target user
 @requires_auth
