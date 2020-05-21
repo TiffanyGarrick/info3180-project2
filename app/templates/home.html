@@ -1,25 +1,19 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block main %}
-    <!--
-    <h2>Form Examples</h2>
-    <p>The following are basic examples of how to create and process forms using the default Flask form handling and also the Flask-WTF library.</p>
-    <ul>
-        <li><a href="{{ url_for('basic_form') }}">Basic Form Example</a></li>
-        <li><a href="{{ url_for('wtform') }}">Flask-WTF Example</a></li>
-        <li><a href="{{ url_for('photo_upload') }}">File Upload Example</a></li>
-    </ul>
-    -->
+<!--{% block main %}
+<h1 class="page-header">JWT Demo</h1>
+<p class="lead">This application is a basic demonstration of JSON Web Tokens being used in a Flask App.</p>
+<p>The application uses the VueJS and the Fetch API to make requests to a simple API, but a JWT token needs to be passed in an Authorization header in order to work with the <code>/api/secure</code> route.</p>
+<p>Visit the <a href="{{ url_for('demo') }}">Demo</a> and click the buttons provided.</p>
+{% endblock %} ORIGINALLY HERE -->
+
+{% extends 'base.html' %}
     <br><br><br><br>
     <div class="home-row">
         <div class="home-column">
             <img src="https://images.adsttc.com/media/images/5b68/91b2/f197/cc32/a300/04ba/slideshow/18_MAD_Echigo_Tsumari_Tunnel_of_Light_Live_Cave_by_Nacasa___Partners_Inc..jpg?1533579671" alt="Snow"><!-- style="width:60%">-->
         </div>
-        <!--<div class="home-column">
-            <img src="https://www.w3schools.com/images/picture.jpg" alt="Forest" style="width:150%">
-        </div>-->
         <div class="home-column">
-        <!--ORIGINALLY COMMENTED <div class="photogram-box">-->
             <div class="photogram-box">
                 <ul class="home-nav">
                     <li>
@@ -45,6 +39,5 @@
                 </table>
             </div>
         </div>
-     
     </div>
 {% endblock %}

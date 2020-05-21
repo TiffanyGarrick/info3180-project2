@@ -1,3 +1,4 @@
+from werkzeug.security import safe_str_cmp
 from . import db
 from werkzeug.security import generate_password_hash
 
@@ -129,3 +130,12 @@ class Posts(db.Model):
 
     def __repr__(self):
         return '<User %r>' %  self.id #ORIGINALLY username
+
+def authenticate(username, password):
+    user = Users.get(username, None)
+    if user and safe_str_cmp(user.password.encode('utf-8'), password.encode('utf-8')):
+        return user
+
+def identity(payload):
+    user_id = payload['identity']
+    return Users.get(user_id, None)

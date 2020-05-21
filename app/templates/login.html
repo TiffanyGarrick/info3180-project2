@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 
 {% block main %}
-<br><br><br>
-  <h2 class="login-text">Login</h2>
-  <div class="login-form">
-    {% include 'flash_messages.html' %}
-    <form action="" method="post">
-      {{ form.csrf_token }}
-      <div class="form-group">
-        {{ form.username.label }}
-        {{ form.username(class="form-control") }}
-      </div>
-      <div class="form-group">
-        {{ form.password.label }}
-        {{ form.password(class="form-control") }}
-      </div>
-      <button type="submit" class="butn">Login</button>
-    </form>
-  </div>
+<div id="jwtDemo">
+    <br><br><br>
+    <h2 class="login-text">Login</h2>
+    <div class="login-form">
+        {% include 'flash_messages.html' %}
+        <form action="" method="post">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.username.label }}
+                {{ form.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <button type="submit" @click="getLogin" data-toggle="modal" data-target="#tokenModal" class="butn">Login</button> 
+        </form>
+    </div>
+</div>
 {% endblock %}

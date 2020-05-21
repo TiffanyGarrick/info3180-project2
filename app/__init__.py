@@ -24,3 +24,4 @@ login_manager.login_message_category = "info"  # customize the flash message cat
 
 app.config.from_object(__name__)
 from app import views
+

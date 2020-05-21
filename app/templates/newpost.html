@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 
-                                                      <!--FINISH FIXING-->
 {% block main %}
 <br><br><br>
-  <h2 class="login-text">New Post</h2>
-  <div class="login-form">
+  <h2 class="new_post_text">New Post</h2>
+  <div class="newpost-form">
     {% include 'flash_messages.html' %}
-    <form action="" method="post">
+    <form action="{{ url_for('newpost') }}" method="post" enctype="multipart/form-data">
       {{ form.csrf_token }}
       <div class="form-group">
-        {{ form.username.label }}
-        {{ form.username(class="form-control") }}
+        {{ form.photo.label }}
+        {{ form.photo}}
       </div>
       <div class="form-group">
         {{ form.caption.label }}
         {{ form.caption(class="form-control") }}
       </div>
-      <button type="submit" class="butn">Login</button>
+      <button type="submit" class="newpost_button">Submit</button>
     </form>
   </div>
 {% endblock %}
